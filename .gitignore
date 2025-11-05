@@ -1,0 +1,17 @@
+# Python cache files
+__pycache__/
+*.pyc
+*.pyo
+
+# Virtual environment
+venv/
+
+# Local data files
+data/*.json
+
+# VS Code settings
+.vscode/
+
+# System
+*.log
+*.tmp

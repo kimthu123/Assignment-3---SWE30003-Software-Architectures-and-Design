@@ -10,6 +10,10 @@ class Checkout:
         self.cart = cart
 
     def confirm_order(self):
+        # check if cart is empty
+        if not self.cart.items:
+            return {"error": "Cart is empty, please add items to the cart."}
+
         orders = read_json('data/orders.json')
         products = read_json('data/products.json')
 

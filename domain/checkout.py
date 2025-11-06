@@ -11,6 +11,21 @@ class Checkout:
 
     def confirm_order(self):
         orders = read_json('data/orders.json')
+        products = read_json('data/products.json')
+
+        # validate stock for all items
+        for item in self.cart.items:
+            product = next((p for p in products if p['id'] == item['product_id']), None)
+            if not product:
+                return {"error": f"Product {item['product_id']} not found"}
+            if product['stock'] < item['quantity']:
+                return {"error": f"Not enough stock for {product['name']}"}
+
+        # decrease stock
+        for item in self.cart.items:
+            product = next(p for p in products if p['id'] == item['product_id'])
+            product['stock'] -= item['quantity']
+        write_json('data/products.json', products)
 
         # create order record
         order_id = len(orders) + 1

@@ -22,6 +22,8 @@ def add_to_cart():
 def checkout():
     checkout_process = Checkout(cart)
     result = checkout_process.confirm_order()
+    if isinstance(result, dict) and 'error' not in result:
+        cart.clear()
     return jsonify(result)
 
 if __name__ == '__main__':

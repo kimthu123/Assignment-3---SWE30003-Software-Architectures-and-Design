@@ -1,0 +1,86 @@
+[
+  {
+    "invoice_id": 1,
+    "order_id": 1,
+    "total_amount": 0.0,
+    "payment_status": "paid",
+    "issued_date": "2025-11-06 01:17:13"
+  },
+  {
+    "invoice_id": 2,
+    "order_id": 2,
+    "total_amount": 0.0,
+    "payment_status": "paid",
+    "issued_date": "2025-11-06 01:17:37"
+  },
+  {
+    "invoice_id": 3,
+    "order_id": 3,
+    "total_amount": 0.0,
+    "payment_status": "paid",
+    "issued_date": "2025-11-06 01:24:37"
+  },
+  {
+    "invoice_id": 4,
+    "order_id": 4,
+    "total_amount": 0.0,
+    "payment_status": "paid",
+    "issued_date": "2025-11-06 16:18:58"
+  },
+  {
+    "invoice_id": 5,
+    "order_id": 5,
+    "total_amount": 0.0,
+    "payment_status": "paid",
+    "issued_date": "2025-11-06 22:17:10"
+  },
+  {
+    "invoice_id": 6,
+    "order_id": 6,
+    "total_amount": 32.89,
+    "payment_status": "paid",
+    "issued_date": "2025-11-06 23:04:07"
+  },
+  {
+    "invoice_id": 7,
+    "order_id": 7,
+    "total_amount": 10.95,
+    "payment_status": "paid",
+    "issued_date": "2025-11-06 23:06:11"
+  },
+  {
+    "invoice_id": 8,
+    "order_id": 8,
+    "total_amount": 0.0,
+    "payment_status": "paid",
+    "issued_date": "2025-11-06 23:22:57"
+  },
+  {
+    "invoice_id": 9,
+    "order_id": 9,
+    "total_amount": 43.78,
+    "payment_status": "paid",
+    "issued_date": "2025-11-06 23:26:16"
+  },
+  {
+    "invoice_id": 10,
+    "order_id": 10,
+    "total_amount": 21.89,
+    "payment_status": "paid",
+    "issued_date": "2025-11-06 23:50:43"
+  },
+  {
+    "invoice_id": 11,
+    "order_id": 11,
+    "total_amount": 21.89,
+    "payment_status": "paid",
+    "issued_date": "2025-11-06 23:53:33"
+  },
+  {
+    "invoice_id": 12,
+    "order_id": 12,
+    "total_amount": 21.89,
+    "payment_status": "paid",
+    "issued_date": "2025-11-07 00:03:03"
+  }
+]

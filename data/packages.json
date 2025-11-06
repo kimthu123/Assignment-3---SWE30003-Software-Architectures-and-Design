@@ -1,0 +1,74 @@
+[
+  {
+    "package_id": 1,
+    "order_id": 1,
+    "status": "packed",
+    "packed_at": "2025-11-06 01:17:13"
+  },
+  {
+    "package_id": 2,
+    "order_id": 2,
+    "status": "packed",
+    "packed_at": "2025-11-06 01:17:37"
+  },
+  {
+    "package_id": 3,
+    "order_id": 3,
+    "status": "packed",
+    "packed_at": "2025-11-06 01:24:37"
+  },
+  {
+    "package_id": 4,
+    "order_id": 4,
+    "status": "packed",
+    "packed_at": "2025-11-06 16:18:58"
+  },
+  {
+    "package_id": 5,
+    "order_id": 5,
+    "status": "packed",
+    "packed_at": "2025-11-06 22:17:10"
+  },
+  {
+    "package_id": 6,
+    "order_id": 6,
+    "status": "packed",
+    "packed_at": "2025-11-06 23:04:07"
+  },
+  {
+    "package_id": 7,
+    "order_id": 7,
+    "status": "packed",
+    "packed_at": "2025-11-06 23:06:11"
+  },
+  {
+    "package_id": 8,
+    "order_id": 8,
+    "status": "packed",
+    "packed_at": "2025-11-06 23:22:57"
+  },
+  {
+    "package_id": 9,
+    "order_id": 9,
+    "status": "packed",
+    "packed_at": "2025-11-06 23:26:16"
+  },
+  {
+    "package_id": 10,
+    "order_id": 10,
+    "status": "packed",
+    "packed_at": "2025-11-06 23:50:43"
+  },
+  {
+    "package_id": 11,
+    "order_id": 11,
+    "status": "packed",
+    "packed_at": "2025-11-06 23:53:33"
+  },
+  {
+    "package_id": 12,
+    "order_id": 12,
+    "status": "packed",
+    "packed_at": "2025-11-07 00:03:03"
+  }
+]

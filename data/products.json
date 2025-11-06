@@ -1,0 +1,47 @@
+[
+  {
+    "id": 1,
+    "name": "Cadbury Milk Chocolate",
+    "description": "Yummy milk chocolate, plz buy me.",
+    "category": "Confectionery",
+    "price": 3.99,
+    "stock": 25,
+    "on_shelf": true
+  },
+  {
+    "id": 2,
+    "name": "Cadbury Dark Chocolate",
+    "description": "Yummy dark chocolate, plz buy me.",
+    "category": "Confectionery",
+    "price": 3.99,
+    "stock": 15,
+    "on_shelf": true
+  },
+  {
+    "id": 3,
+    "name": "Snickers Chocolate Bar",
+    "description": "Best bar, plz buy me.",
+    "category": "Confectionery",
+    "price": 2.99,
+    "stock": 30,
+    "on_shelf": false
+  },
+  {
+    "id": 4,
+    "name": "Shin Ramen Instant Noodle",
+    "description": "For the students.",
+    "category": "Noodles",
+    "price": 1.99,
+    "stock": 40,
+    "on_shelf": true
+  },
+  {
+    "id": 5,
+    "name": "Tim Tams Original",
+    "description": "Lowkey overrated...",
+    "category": "Confectionery",
+    "price": 6.5,
+    "stock": 20,
+    "on_shelf": true
+  }
+]

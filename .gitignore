@@ -7,7 +7,7 @@ __pycache__/
 venv/
 
 # Local data files
-#data/*.json
+data/*.json
 
 # VS Code settings
 .vscode/

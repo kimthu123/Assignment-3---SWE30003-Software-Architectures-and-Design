@@ -22,5 +22,29 @@
     "email": "example@gmail.com",
     "password": "ILoveHDMarks",
     "account_type": "customer"
+  },
+  {
+    "id": 5,
+    "email": "westwemail@westy.wom",
+    "password": "WestWord",
+    "account_type": "customer"
+  },
+  {
+    "id": 6,
+    "email": "testemailcustomerblud@testy.com",
+    "password": "customerpassword",
+    "account_type": "customer"
+  },
+  {
+    "id": 7,
+    "email": "testemailadminblud@testy.com",
+    "password": "testpasswordadmin",
+    "account_type": "admin"
+  },
+  {
+    "id": 8,
+    "email": "testemailstaffblud@testy.com",
+    "password": "staffpassword",
+    "account_type": "staff"
   }
 ]

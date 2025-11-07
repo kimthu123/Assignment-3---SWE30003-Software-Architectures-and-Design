@@ -1,0 +1,43 @@
+.auth-container {
+    max-width: 400px;
+    margin: 40px auto;
+    padding: 20px;
+    border: 2px solid #333;
+    border-radius: 10px;
+    background: #f8f8f8;
+}
+
+.auth-tabs {
+    display: flex;
+    justify-content: space-around;
+    margin-bottom: 20px;
+}
+
+.auth-tabs button {
+    flex: 1;
+    padding: 10px;
+    background: #eee;
+    border: none;
+    cursor: pointer;
+    font-weight: bold;
+}
+
+.auth-tabs button.active {
+    background: #444;
+    color: white;
+}
+
+.auth-form {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.auth-form.hidden {
+    display: none;
+}
+
+.auth-form input, .auth-form button {
+    padding: 10px;
+    font-size: 16px;
+}

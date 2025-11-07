@@ -25,6 +25,10 @@ def get_catalogue():
 def cart_page():
     return render_template('cart.html')
 
+@app.route('/login_page')
+def login_page():
+    return render_template('login.html')
+
 def index():
     products = catalogue.get_products()  # get products in Python
     return render_template("index.html", products=products)
@@ -58,10 +62,27 @@ def signup():
     )
     return jsonify(result)
 
+@app.route('/update_account', methods=['POST'])
+def update_account_route():
+    data = request.json
+    result = account_manager.update_account(
+        email=data['email'],
+        new_email=data.get('new_email'),
+        new_password=data.get('new_password')
+    )
+    return jsonify(result)
+
+
 @app.route('/login', methods=['POST'])
 def login():
     data = request.json
     result = account_manager.login(data['email'], data['password'])
+    return jsonify(result)
+
+@app.route('/delete_account', methods=['POST'])
+def delete_account():
+    data = request.json
+    result = account_manager.delete_account(data['email'])
     return jsonify(result)
 
 @app.route('/admin/products', methods=['POST'])

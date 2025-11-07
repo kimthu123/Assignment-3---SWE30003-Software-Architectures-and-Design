@@ -5,7 +5,7 @@
     "description": "Yummy milk chocolate, plz buy me.",
     "category": "Confectionery",
     "price": 3.99,
-    "stock": 25,
+    "stock": 22,
     "on_shelf": true
   },
   {
@@ -14,7 +14,7 @@
     "description": "Yummy dark chocolate, plz buy me.",
     "category": "Confectionery",
     "price": 3.99,
-    "stock": 15,
+    "stock": 14,
     "on_shelf": true
   },
   {
@@ -32,7 +32,7 @@
     "description": "For the students.",
     "category": "Noodles",
     "price": 1.99,
-    "stock": 40,
+    "stock": 39,
     "on_shelf": true
   },
   {

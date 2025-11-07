@@ -1,0 +1,26 @@
+[
+  {
+    "id": 1,
+    "email": "sexyowner@localstoreadmin.com.au",
+    "password": "Ownerassignment3",
+    "account_type": "admin"
+  },
+  {
+    "id": 2,
+    "email": "gangstastaff@localstore.com.au",
+    "password": "Staffassignment3",
+    "account_type": "staff"
+  },
+  {
+    "id": 3,
+    "email": "owner@localstoreadmin.com.au",
+    "password": "Ownerassignment3",
+    "account_type": "admin"
+  },
+  {
+    "id": 4,
+    "email": "example@gmail.com",
+    "password": "ILoveHDMarks",
+    "account_type": "customer"
+  }
+]

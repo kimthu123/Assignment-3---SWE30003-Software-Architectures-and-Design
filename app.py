@@ -1,4 +1,4 @@
-from flask import Flask, request, jsonify
+from flask import Flask, request, jsonify, render_template
 from domain.product import Product
 from domain.cart import Cart
 from domain.checkout import Checkout
@@ -12,9 +12,22 @@ cart = Cart()
 account_manager = AccountManager()
 catalogue = Catalogue()
 
+@app.route('/')
+def index():
+    products = catalogue.get_products()  # get products in Python
+    return render_template("index.html", products=products)
+
 @app.route('/catalogue', methods=['GET'])
 def get_catalogue():
     return jsonify(catalogue.get_products())
+
+@app.route('/cart_page')
+def cart_page():
+    return render_template('cart.html')
+
+def index():
+    products = catalogue.get_products()  # get products in Python
+    return render_template("index.html", products=products)
 
 @app.route('/cart', methods=['GET'])
 def view_cart():

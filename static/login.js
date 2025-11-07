@@ -63,7 +63,12 @@ document.addEventListener("DOMContentLoaded", () => {
             } else {
                 msg.textContent = "Login successful!";
                 msg.style.color = "green";
+                // stores email + update nav bar
                 localStorage.setItem("user", JSON.stringify(data.account));
+                if (typeof updateNavForLoggedIn === 'function') {
+                    window.loginEmail = data.account.email;
+                    updateNavForLoggedIn();
+                }
                 setTimeout(() => window.location.href = "/", 1000);
             }
         } catch (err) {

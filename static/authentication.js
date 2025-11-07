@@ -29,7 +29,7 @@ function updateNavForLoggedIn() {
     const navs = document.querySelectorAll("nav");
     navs.forEach(nav => {
         if (window.loginEmail) {
-            // Find Account link
+            // locate account link
             const accountLink = Array.from(nav.querySelectorAll("a")).find(a => 
                 a.textContent.includes("Account") || a.href.includes("login_page")
             );
@@ -49,7 +49,7 @@ function updateNavForLoggedIn() {
                 logoutBtn.style.marginLeft = "10px";
                 logoutBtn.style.cursor = "pointer";
                 
-                // Replace the Account link
+                // replace with account
                 accountLink.replaceWith(emailSpan, logoutBtn);
             }
         }
@@ -60,7 +60,7 @@ function updateNavForLoggedIn() {
 function updateNavLoggedOut() {
     const navs = document.querySelectorAll("nav");
     navs.forEach(nav => {
-        // Check if there's a logout button (means user was logged in)
+        // check if there's a logout button (user is logged in)
         const logoutBtn = Array.from(nav.querySelectorAll("button")).find(btn => 
             btn.textContent === "Logout"
         );
@@ -81,7 +81,7 @@ function updateNavLoggedOut() {
             accountLink.href = "/login_page";
             accountLink.textContent = "Account";
             
-            // Find the last link (Cart) and add after it
+            // locate cart, then add acc after
             const cartLink = Array.from(nav.querySelectorAll("a")).find(a => 
                 a.href.includes("cart_page")
             );

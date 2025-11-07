@@ -25,10 +25,6 @@ def get_catalogue():
 def cart_page():
     return render_template('cart.html')
 
-def index():
-    products = catalogue.get_products()  # get products in Python
-    return render_template("index.html", products=products)
-
 @app.route('/cart', methods=['GET'])
 def view_cart():
     return jsonify(cart.get_cart_info())

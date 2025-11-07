@@ -74,4 +74,3 @@ class VisualiseStatistics:
             "average_revenue_by_month": self.get_average_revenue(),
             "average_quantity_per_product": self.get_average_quantity()
         }
-

@@ -1,10 +1,10 @@
-from flask import Flask, request, jsonify, render_template, session
+from flask import Flask, request, jsonify, render_template, session, abort
 from domain.product import Product
 from domain.cart import Cart
 from domain.checkout import Checkout
 from domain.account_manager import AccountManager
 from domain.catalogue import Catalogue
-from domain.visualise_statitics import VisualiseStatistics
+from domain.visualise_statistics import VisualiseStatistics
 import sys, os
 sys.path.append(os.path.dirname(os.path.abspath(__file__)))
 
@@ -152,6 +152,12 @@ def get_statistics():
     
     stats = VisualiseStatistics()
     return jsonify(stats.get_all_stats())
+
+@app.route('/admin/statistics_page')
+def statistics_page():
+    if not session.get('is_admin'):
+        abort(403)
+    return render_template('statistics.html')
 
 if __name__ == '__main__':
     app.run(debug=True)

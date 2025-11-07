@@ -42,11 +42,13 @@ function updateNavForLoggedIn() {
 
                 const productLink = document.createElement("a");
                 productLink.textContent = "Product Management";
-                productLink.href = "/product_page"; // <-- your Flask route for the page
-                productLink.style.marginRight = "10px";
-                productLink.style.textDecoration = "none";
-                productLink.style.color = "blue";
-                productLink.style.cursor = "pointer";
+                productLink.href = "/product_page"; 
+
+                // admin view for visualise statistics
+                const statsLink = document.createElement("a");
+                statsLink.textContent = "Visualise Statistics";
+                statsLink.href = "/admin/statistics_page";
+                const navSeperator = document.createTextNode(" | ");
                 
                 const logoutBtn = document.createElement("button");
                 logoutBtn.textContent = "Logout";
@@ -57,8 +59,8 @@ function updateNavForLoggedIn() {
                 logoutBtn.style.marginLeft = "10px";
                 logoutBtn.style.cursor = "pointer";
                 
-                // Replace the Account link
-                accountLink.replaceWith(emailSpan, productLink, logoutBtn);
+                // replace account link with logged in email
+                accountLink.replaceWith(emailSpan, productLink, navSeperator, statsLink, logoutBtn);
             }
         }
     });

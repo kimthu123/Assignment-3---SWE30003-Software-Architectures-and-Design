@@ -2,12 +2,13 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Shopping Cart</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Statistics</title>
     
 </head>
 <body>
     <header>
-        <h1>Your Cart</h1>
+        <h1>Store Statistics</h1>
         <nav>
             <a href="/">Catalogue</a> | 
             <a href="/cart_page">Cart</a> |
@@ -16,14 +17,13 @@
     </header>
 
     <main>
-        <div id="cartItems"></div>
-        <p id="cartTotal"><b>Total: $0</b></p>
-        <button id="clearCartBtn">Clear Cart</button>
-        <button id="checkoutBtn">Checkout</button>
-        <div id="checkoutMessage"></div>
+        <div id="statisticsMessage"></div>
+        <section id="statisticsContent"></section>
     </main>
 
     <script src="{{ url_for('static', filename='authentication.js') }}"></script>
-    <script src="{{ url_for('static', filename='cart.js') }}"></script>
+    <script src="{{ url_for('static', filename='statistics.js') }}"></script>
 </body>
 </html>
+
+

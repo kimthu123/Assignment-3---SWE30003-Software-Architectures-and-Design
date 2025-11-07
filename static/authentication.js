@@ -39,6 +39,14 @@ function updateNavForLoggedIn() {
                 const emailSpan = document.createElement("span");
                 emailSpan.textContent = window.loginEmail;
                 emailSpan.style.marginRight = "10px";
+
+                const productLink = document.createElement("a");
+                productLink.textContent = "Product Management";
+                productLink.href = "/product_page"; // <-- your Flask route for the page
+                productLink.style.marginRight = "10px";
+                productLink.style.textDecoration = "none";
+                productLink.style.color = "blue";
+                productLink.style.cursor = "pointer";
                 
                 const logoutBtn = document.createElement("button");
                 logoutBtn.textContent = "Logout";
@@ -50,7 +58,7 @@ function updateNavForLoggedIn() {
                 logoutBtn.style.cursor = "pointer";
                 
                 // Replace the Account link
-                accountLink.replaceWith(emailSpan, logoutBtn);
+                accountLink.replaceWith(emailSpan, productLink, logoutBtn);
             }
         }
     });

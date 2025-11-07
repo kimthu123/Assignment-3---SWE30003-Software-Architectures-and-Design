@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Product Management</title>
+    <link rel="stylesheet" href="/static/login.css"> <!-- optional -->
+    <script defer src="/static/product.js"></script>
+</head>
+<body>
+    <nav>
+        <a href="/">Home</a> |
+        <a href="/cart_page">Cart</a> |
+        <a href="/login_page">Account</a>
+    </nav>
+
+    <h1>Product Management</h1>
+
+    <section id="add-product-section">
+        <h2>Add New Product</h2>
+        <form id="addProductForm">
+            <label>Name:</label>
+            <input type="text" id="name" required><br>
+
+            <label>Description:</label>
+            <textarea id="description" required></textarea><br>
+
+            <label>Category:</label>
+            <input type="text" id="category" required><br>
+
+            <label>Price:</label>
+            <input type="number" id="price" required><br>
+
+            <label>Stock:</label>
+            <input type="number" id="stock" required><br>
+
+            <button type="submit">Add Product</button>
+        </form>
+        <p id="addMessage"></p>
+    </section>
+
+    <hr>
+
+    <section id="remove-product-section">  
+        <h2>Remove Product</h2>
+        <form id="removeProductForm">
+            <label for="removeProductId">Product ID:</label>
+            <input type="number" id="removeProductId" placeholder="Enter Product ID" required>
+            <button type="submit">Remove Product</button>
+        </form>
+        <p id="removeProductMessage"></p>
+    </section>
+
+
+    <hr>
+
+    <section id="product-list-section">
+        <h2>Current Products</h2>
+        <table border="1" id="productTable">
+            <thead>
+                <tr>
+                    <th>ID</th><th>Name</th><th>Category</th><th>Price</th><th>Stock</th><th>Status</th><th>Action</th>
+                </tr>
+            </thead>
+            <tbody id="productTableBody">
+                <!-- Products dynamically loaded here -->
+            </tbody>
+        </table>
+    </section>
+</body>
+</html>

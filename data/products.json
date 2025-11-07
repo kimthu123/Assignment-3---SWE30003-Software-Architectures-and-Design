@@ -52,5 +52,14 @@
     "price": 4.5,
     "stock": 20,
     "on_shelf": true
+  },
+  {
+    "id": 7,
+    "name": "Bread",
+    "description": "It's bread",
+    "category": "Bread",
+    "price": 3,
+    "stock": 15,
+    "on_shelf": false
   }
 ]

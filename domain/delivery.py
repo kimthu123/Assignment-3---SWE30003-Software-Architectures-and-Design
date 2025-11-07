@@ -1,12 +1,20 @@
-from utils.db_handler import read_json, write_json
+"""Handles delivery processing and tracking."""
+
 import datetime
 
+from utils.db_handler import read_json, write_json
+
+
 class Delivery:
+    """Represents a delivery process for a customer order."""
+
     def __init__(self, order_id, address):
+        """Initialize delivery with order ID and destination address."""
         self.order_id = order_id
         self.address = address
 
     def start_delivery(self):
+        """Start delivery process and record dispatch details."""
         deliveries = read_json('data/deliveries.json')
         delivery_id = len(deliveries) + 1
 
@@ -15,7 +23,7 @@ class Delivery:
             "order_id": self.order_id,
             "address": self.address,
             "status": "on the way",
-            "dispatched_at": datetime.datetime.now().strftime("%Y-%m-%d %H:%M:%S")
+            "dispatched_at": datetime.datetime.now().strftime("%Y-%m-%d %H:%M:%S"),
         }
 
         deliveries.append(delivery)
@@ -23,5 +31,5 @@ class Delivery:
 
         return {
             "message": f"Delivery for order {self.order_id} dispatched.",
-            "delivery": delivery
+            "delivery": delivery,
         }

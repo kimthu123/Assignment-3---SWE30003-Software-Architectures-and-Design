@@ -4,6 +4,7 @@ from domain.cart import Cart
 from domain.checkout import Checkout
 from domain.account_manager import AccountManager
 from domain.catalogue import Catalogue
+from domain.visualise_statitics import VisualiseStatistics
 import sys, os
 sys.path.append(os.path.dirname(os.path.abspath(__file__)))
 
@@ -115,6 +116,11 @@ def filter_products():
 @app.route('/catalogue/product/<int:product_id>', methods=['GET'])
 def get_product_details(product_id):
     return jsonify(catalogue.get_product_details(product_id))
+
+@app.route('/admin/statistics', methods=['GET'])
+def get_statistics():
+    stats = VisualiseStatistics()
+    return jsonify(stats.get_all_stats())
 
 if __name__ == '__main__':
     app.run(debug=True)

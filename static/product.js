@@ -1,4 +1,3 @@
-// Load all products on page load
 document.addEventListener("DOMContentLoaded", () => {
     fetchProducts();
 
@@ -6,10 +5,9 @@ document.addEventListener("DOMContentLoaded", () => {
     addForm.addEventListener("submit", handleAddProduct);
 });
 
-// Fetch product list from the server (use your existing catalogue endpoint)
 async function fetchProducts() {
     try {
-        const res = await fetch("/catalogue"); // or your endpoint for listing all products
+        const res = await fetch("/catalogue");
         if (!res.ok) throw new Error("Failed to load products");
         const products = await res.json();
 
@@ -38,16 +36,83 @@ async function fetchProducts() {
     }
 }
 
-// Handle adding a new product
 async function handleAddProduct(e) {
     e.preventDefault();
 
-    const name = document.getElementById("name").value;
-    const description = document.getElementById("description").value;
-    const category = document.getElementById("category").value;
-    const price = parseFloat(document.getElementById("price").value);
-    const stock = parseInt(document.getElementById("stock").value);
+    const name = document.getElementById("name").value.trim();
+    const description = document.getElementById("description").value.trim();
+    const category = document.getElementById("category").value.trim();
+    const priceRaw = document.getElementById("price").value;
+    const stockRaw = document.getElementById("stock").value;
     const msg = document.getElementById("addMessage");
+
+    msg.textContent = "";
+    if (!name) {
+        msg.textContent = "Product name is required.";
+        return;
+    }
+
+    if (name.length < 3) {
+        msg.textContent = "Product name must be at least 3 characters.";
+        return;
+    }
+
+    if (name.length > 255) {
+        msg.textContent = "Product name must be 255 characters or fewer.";
+        return;
+    }
+
+    if (!description) {
+        msg.textContent = "Product description is required.";
+        return;
+    }
+
+    if (description.length < 5) {
+        msg.textContent = "Description must be at least 5 characters.";
+        return;
+    }
+
+    if (description.length > 500) {
+        msg.textContent = "Description must be 500 characters or fewer.";
+        return;
+    }
+
+    if (!category) {
+        msg.textContent = "Product category is required.";
+        return;
+    }
+
+    if (category.length < 3) {
+        msg.textContent = "Category must be at least 3 characters.";
+        return;
+    }
+
+    if (category.length > 20) {
+        msg.textContent = "Category must be 20 characters or fewer.";
+        return;
+    }
+
+    const price = Number(priceRaw);
+    if (!Number.isFinite(price) || priceRaw.trim() === "") {
+        msg.textContent = "Price must be a valid number.";
+        return;
+    }
+
+    if (price < 0) {
+        msg.textContent = "Price cannot be negative.";
+        return;
+    }
+
+    const stock = Number(stockRaw);
+    if (!Number.isInteger(stock) || stockRaw.trim() === "") {
+        msg.textContent = "Stock must be a whole number.";
+        return;
+    }
+
+    if (stock < 0) {
+        msg.textContent = "Stock cannot be negative.";
+        return;
+    }
 
     try {
         const res = await fetch("/admin/products", {
@@ -60,17 +125,41 @@ async function handleAddProduct(e) {
 
         if (res.ok && !data.error) {
             msg.textContent = data.message;
-            msg.style.color = "green";
             e.target.reset();
-            fetchProducts(); // refresh table
+            fetchProducts();
         } else {
             msg.textContent = data.error || "Failed to add product.";
-            msg.style.color = "red";
         }
     } catch (err) {
         console.error("Error adding product:", err);
         msg.textContent = "Error adding product.";
-        msg.style.color = "red";
+    }
+}
+
+async function removeProduct(productId) {
+    if (!confirm(`Are you sure you want to remove product #${productId}?`)) {
+        return;
+    }
+
+    try {
+        const res = await fetch(`/admin/products/${productId}`, {
+            method: "DELETE",
+            headers: { "Content-Type": "application/json" }
+        });
+
+        const data = await res.json();
+
+        if (res.status === 403) {
+            alert("You do not have permission to remove products.");
+        } else if (data.error) {
+            alert(data.error);
+        } else {
+            alert(data.message);
+            fetchProducts();
+        }
+    } catch (err) {
+        console.error(err);
+        alert("Error removing product.");
     }
 }
 
@@ -80,16 +169,23 @@ document.addEventListener("DOMContentLoaded", () => {
 
     removeForm.addEventListener("submit", async (e) => {
         e.preventDefault();
-        const productId = document.getElementById("removeProductId").value;
+        const productId = document.getElementById("removeProductId").value.trim();
+
+        msg.textContent = "";
 
         if (!productId) {
             msg.textContent = "Please enter a product ID.";
-            msg.style.color = "red";
+            return;
+        }
+
+        const parsedId = Number(productId);
+        if (!Number.isInteger(parsedId) || parsedId <= 0) {
+            msg.textContent = "Product ID must be a positive full number.";
             return;
         }
 
         try {
-            const res = await fetch(`/admin/products/${productId}`, {
+            const res = await fetch(`/admin/products/${parsedId}`, {
                 method: "DELETE",
                 headers: { "Content-Type": "application/json" }
             });
@@ -98,22 +194,17 @@ document.addEventListener("DOMContentLoaded", () => {
 
             if (res.status === 403) {
                 msg.textContent = "You do not have permission to remove products.";
-                msg.style.color = "red";
             } else if (data.error) {
                 msg.textContent = data.error;
-                msg.style.color = "red";
             } else {
                 msg.textContent = data.message;
-                msg.style.color = "green";
-
-                // Clear the form
                 document.getElementById("removeProductId").value = "";
+                fetchProducts();
             }
 
         } catch (err) {
             console.error(err);
             msg.textContent = "Error removing product.";
-            msg.style.color = "red";
         }
     });
 });

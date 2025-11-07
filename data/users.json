@@ -46,5 +46,17 @@
     "email": "testemailstaffblud@testy.com",
     "password": "staffpassword",
     "account_type": "staff"
+  },
+  {
+    "id": 9,
+    "email": "testing@localstoreadmin.com",
+    "password": "testing",
+    "account_type": "admin"
+  },
+  {
+    "id": 10,
+    "email": "testing98@gmail.com",
+    "password": "testing98",
+    "account_type": "admin"
   }
 ]

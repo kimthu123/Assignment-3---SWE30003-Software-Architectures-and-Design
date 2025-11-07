@@ -61,5 +61,23 @@
     "price": 3,
     "stock": 15,
     "on_shelf": false
+  },
+  {
+    "id": 8,
+    "name": "Chicken Breast",
+    "description": "Protein",
+    "category": "Meat",
+    "price": 3,
+    "stock": 15,
+    "on_shelf": false
+  },
+  {
+    "id": 9,
+    "name": "aaafa",
+    "description": "aaaaa",
+    "category": "aaaaa",
+    "price": 10,
+    "stock": 10,
+    "on_shelf": false
   }
 ]

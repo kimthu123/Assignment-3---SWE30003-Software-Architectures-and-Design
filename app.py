@@ -1,4 +1,4 @@
-from flask import Flask, request, jsonify, render_template
+from flask import Flask, request, jsonify, render_template, session
 from domain.product import Product
 from domain.cart import Cart
 from domain.checkout import Checkout
@@ -9,6 +9,7 @@ import sys, os
 sys.path.append(os.path.dirname(os.path.abspath(__file__)))
 
 app = Flask(__name__)
+app.secret_key = 'assignment3-key'
 cart = Cart()
 account_manager = AccountManager()
 catalogue = Catalogue()
@@ -29,10 +30,6 @@ def cart_page():
 @app.route('/login_page')
 def login_page():
     return render_template('login.html')
-
-def index():
-    products = catalogue.get_products()  # get products in Python
-    return render_template("index.html", products=products)
 
 @app.route('/cart', methods=['GET'])
 def view_cart():
@@ -73,12 +70,33 @@ def update_account_route():
     )
     return jsonify(result)
 
-
 @app.route('/login', methods=['POST'])
 def login():
     data = request.json
     result = account_manager.login(data['email'], data['password'])
+    
+    # check if login was admin account
+    if 'error' not in result:
+        session['is_admin'] = (result['account']['account_type'] == 'admin')
+        session['email'] = result['account']['email']
+    
     return jsonify(result)
+
+@app.route('/session', methods=['GET'])
+def check_session():
+    if session.get('email'):
+        return jsonify({
+            "logged_in": True,
+            "email": session.get('email'),
+            "is_admin": session.get('is_admin', False)
+        })
+    return jsonify({"logged_in": False})
+
+@app.route('/logout', methods=['POST'])
+def logout():
+    # clear session data
+    session.clear()
+    return jsonify({"message": "Logged out"})
 
 @app.route('/delete_account', methods=['POST'])
 def delete_account():
@@ -88,6 +106,9 @@ def delete_account():
 
 @app.route('/admin/products', methods=['POST'])
 def add_product():
+    if not session.get('is_admin'):
+        return jsonify({"error": "You do not have permission to view this page."}), 403
+    
     data = request.json
     result = catalogue.add_product(
         data['name'],
@@ -100,6 +121,9 @@ def add_product():
 
 @app.route('/admin/products/<int:product_id>', methods=['DELETE'])
 def remove_product(product_id):
+    if not session.get('is_admin'):
+        return jsonify({"error": "You do not have permission to view this page."}), 403
+    
     result = catalogue.remove_product(product_id)
     return jsonify(result)
 
@@ -119,6 +143,9 @@ def get_product_details(product_id):
 
 @app.route('/admin/statistics', methods=['GET'])
 def get_statistics():
+    if not session.get('is_admin'):
+        return jsonify({"error": "You do not have permission to view this page."}), 403
+    
     stats = VisualiseStatistics()
     return jsonify(stats.get_all_stats())
 

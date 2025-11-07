@@ -31,6 +31,10 @@ def cart_page():
 def login_page():
     return render_template('login.html')
 
+@app.route('/product_page')
+def product_page():
+    return render_template('product.html')
+
 @app.route('/cart', methods=['GET'])
 def view_cart():
     return jsonify(cart.get_cart_info())

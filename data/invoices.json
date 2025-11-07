@@ -82,5 +82,19 @@
     "total_amount": 21.89,
     "payment_status": "paid",
     "issued_date": "2025-11-07 00:03:03"
+  },
+  {
+    "invoice_id": 13,
+    "order_id": 13,
+    "total_amount": 4.5,
+    "payment_status": "paid",
+    "issued_date": "2025-11-07 15:17:44"
+  },
+  {
+    "invoice_id": 14,
+    "order_id": 14,
+    "total_amount": 3.99,
+    "payment_status": "paid",
+    "issued_date": "2025-11-07 15:18:49"
   }
 ]

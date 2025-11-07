@@ -5,7 +5,7 @@
     "description": "Yummy milk chocolate, plz buy me.",
     "category": "Confectionery",
     "price": 3.99,
-    "stock": 25,
+    "stock": 22,
     "on_shelf": true
   },
   {
@@ -14,7 +14,7 @@
     "description": "Yummy dark chocolate, plz buy me.",
     "category": "Confectionery",
     "price": 3.99,
-    "stock": 15,
+    "stock": 14,
     "on_shelf": true
   },
   {
@@ -50,7 +50,7 @@
     "description": "Better than Shin Ramen",
     "category": "Noodles",
     "price": 4.5,
-    "stock": 20,
+    "stock": 19,
     "on_shelf": true
   }
 ]
